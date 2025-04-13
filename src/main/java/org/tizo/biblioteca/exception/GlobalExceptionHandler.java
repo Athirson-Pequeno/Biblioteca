@@ -33,7 +33,7 @@ public class GlobalExceptionHandler {
                 LocalDateTime.now(),
                 HttpStatus.NOT_FOUND.value(),
                 ex.getMessage(),
-                List.of("Recurso não encontrado"));
+                List.of("Recurnnnso não encontrado"));
         return new ResponseEntity<>(erro, HttpStatus.NOT_FOUND);
     }
 

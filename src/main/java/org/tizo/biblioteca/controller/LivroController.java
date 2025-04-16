@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.tizo.biblioteca.model.Livro;
+import org.tizo.biblioteca.model.LivroUpdateRequest;
 import org.tizo.biblioteca.service.LivroService;
 
 import java.util.List;
@@ -25,5 +26,10 @@ public class LivroController {
     @PostMapping
     public ResponseEntity<Livro> createLivro(@Valid @RequestBody Livro livro) {
         return ResponseEntity.status(HttpStatus.CREATED).body(livroService.createLivro(livro));
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Livro> updateLivro(@Valid @RequestBody LivroUpdateRequest livro, @PathVariable Long id) {
+        return ResponseEntity.status(HttpStatus.OK).body(livroService.updateLivro(livro, id));
     }
 }
